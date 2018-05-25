@@ -8,6 +8,7 @@ before_install:
 - sudo apt-get update -y
 - sudo apt-get install -y python-dev libgeos-dev
 - pip install -r dev-requirements.txt
+- pip install -r requirements.txt
 install:
 - pip install nose
 - pip install flake8
