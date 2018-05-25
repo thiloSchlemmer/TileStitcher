@@ -1,0 +1,8 @@
+nose
+flake8
+coveralls
+mock==1.0.1
+sphinx
+sphinx_rtd_theme
+sphinx-autobuild
+future
