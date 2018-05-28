@@ -161,36 +161,3 @@ class TestTileStitcher(unittest.TestCase):
 
         self.assertTrue(center_to_east_vertices_count == east_vertices_count)
         self.assertTrue(center_to_south_vertices_count == south_vertices_count)
-
-    def test_stitch_with_east_and_south_z14x17380y12516(self):
-        # arrange
-        center_x = 17380
-        center_y = 12516
-        center_z = 14
-
-        east_x = 17381
-        east_y = 12516
-        east_z = 14
-
-        south_x = 17380
-        south_y = 12515
-        south_z = 14
-
-        center_tile = get_tile(center_z, center_x, center_y)
-        east_tile = get_tile(east_z, east_x, east_y)
-        south_tile = get_tile(south_z, south_x, south_y)
-
-        # act
-        stitcher = tile_stitcher.TileStitcher(center_tile)
-        stitcher.add_neighbour(east_tile)
-        stitcher.add_neighbour(south_tile)
-        stitcher.stitch_together()
-
-        # assert
-        center_to_east_vertices_count = len(center_tile.get_edge_vertices(edge='e'))
-        center_to_south_vertices_count = len(center_tile.get_edge_vertices(edge='s'))
-        east_vertices_count = len(east_tile.get_edge_vertices(edge='w'))
-        south_vertices_count = len(south_tile.get_edge_vertices(edge='n'))
-
-        self.assertTrue(center_to_east_vertices_count == east_vertices_count)
-        self.assertTrue(center_to_south_vertices_count == south_vertices_count)
